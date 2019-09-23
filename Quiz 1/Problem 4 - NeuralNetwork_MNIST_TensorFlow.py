@@ -12,19 +12,19 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 
 print('Training Data:')
-print('Number of training examples: ', )
-print('Shape of training inputs: ',)
-print('Shape of training labels: ', )
+print('Number of training examples: ', mnist.train.num_examples)
+print('Shape of training inputs: ', mnist.train.images.shape)
+print('Shape of training labels: ', mnist.train.labels.shape)
 
 print('Validation Data:')
-print('Number of validation examples: ', )
-print('Shape of validation inputs: ', )
-print('Shape of validation labels: ',)
+print('Number of validation examples: ', mnist.validation.num_examples)
+print('Shape of validation inputs: ', mnist.validation.images.shape)
+print('Shape of validation labels: ', mnist.validation.labels.shape)
 
 print('Test Data:')
-print('Number of test examples: ', )
-print('Shape of test inputs: ', )
-print('Shape of labels labels: ', )
+print('Number of test examples: ', mnist.test.num_examples)
+print('Shape of test inputs: ', mnist.test.images.shape)
+print('Shape of labels labels: ', mnist.test.labels.shape)
 
 # Iniatialize all variables and palceholders
 x = tf.placeholder(tf.float32, shape=[None, 784])
@@ -41,15 +41,15 @@ b3 = tf.Variable(tf.constant(0.1, shape = [10]))
 
 
 # Layer 1 - Wx+b
-z1 = tf.matmul(, ) +
-a1 = tf.nn.relu()
+z1 = tf.matmul(W1, x) + b1
+a1 = tf.nn.relu(z1)
 
 # Layer 2 Wx+b
-z2 = tf.matmul(, ) +
-a2 = tf.nn.relu()
+z2 = tf.matmul(W2, x) + b2
+a2 = tf.nn.relu(z2)
 
 # Prediction
-y_hat = tf.matmul(, ) +
+y_hat = tf.matmul(W3, x) + b3
 
 # Define loss
 loss_cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=y, logits=y_hat))
