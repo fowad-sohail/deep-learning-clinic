@@ -1,1 +1,3 @@
-# deep-learning-clinic
+# Fall 2019 Deep Learning Clinic
+
+For stroke detection
