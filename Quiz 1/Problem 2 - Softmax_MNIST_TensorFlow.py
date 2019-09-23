@@ -4,22 +4,32 @@ tf.set_random_seed(42)
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
+print(mnist)
+
+
+print()
 # Display Training Data
-print('Training Data:')
+print('Training Data:',)
 print('Number of training examples: ', mnist.train.num_examples)
 print('Shape of training inputs: ', mnist.train.images.shape)
 print('Shape of training labels: ', mnist.train.labels.shape)
 
-# Display validation data
-print('Validation Data:')
-print('Number of validation examples: ', )
-print('Shape of validation inputs: ', )
-print('Shape of validation labels: ', )
+print()
 
-print('Test Data:')
-print('Number of test examples: ', )
-print('Shape of test inputs: ', )
-print('Shape of labels labels: ', )
+# Display validation data
+print('Validation Data:',)
+print('Number of validation examples: ', mnist.validation.num_examples)
+print('Shape of validation inputs: ', mnist.validation.images.shape)
+print('Shape of validation labels: ', mnist.validation.labels.shape)
+
+print()
+
+print('Test Data:',)
+print('Number of test examples: ', mnist.test.num_examples)
+print('Shape of test inputs: ', mnist.test.images.shape)
+print('Shape of labels labels: ', mnist.test.labels.shape)
+
+print()
 
 x = tf.placeholder(tf.float32, shape=[None, 784])
 y = tf.placeholder(tf.float32, shape=[None, 10])
@@ -40,8 +50,8 @@ train_step = tf.train.GradientDescentOptimizer(0.5).minimize(loss_cross_entropy)
 # Execute the graph
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    for _ in range(1000):
-        batch = mnist.train.next_batch(20)
+    for _ in range(10):
+        batch = mnist.train.next_batch(100)
         train_step.run(feed_dict={x: batch[0], y: batch[1]})
   
 
