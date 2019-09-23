@@ -1,3 +1,3 @@
-# Fall 2019 Deep Learning Clinic
+# Deep Learning Engineering Clinic (Fall 2019) 
 
-For stroke detection
+Convolutional neural networks for Stroke Detection
