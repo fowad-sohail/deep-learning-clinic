@@ -41,7 +41,13 @@ b3 = tf.Variable(tf.constant(0.1, shape = [10]))
 
 
 # Layer 1 - Wx+b
-z1 = tf.matmul(W1, x) + b1
+print()
+print("W1 shape " + str(W1.shape))
+print("x shape " + str(x.shape))
+print("b1 shape " + str(b1.shape))
+matmul = tf.matmul(tf.transpose(W1), x)
+print("matmul W1 b1" + str(matmul))
+z1 = matmul + b1
 a1 = tf.nn.relu(z1)
 
 # Layer 2 Wx+b
