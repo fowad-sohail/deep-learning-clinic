@@ -57,6 +57,11 @@ def fGetAccuracy(W1, W2, b1, b2, X_data, y_data):
     accuracy = np.mean(predicted_class == y_data)
     return accuracy
 
+# derivative of ReLU
+def reluDerivative(x):
+    x[x<=0] = 0
+    x[x>0] = 1
+    return x
 
 # Start iterations
 for i in range(n_iterations):
@@ -69,7 +74,7 @@ for i in range(n_iterations):
     # compute the class probabilities
     exp_scores = np.exp(Z2)
     probs_all = exp_scores / np.sum(exp_scores, axis=0, keepdims=True)            # Get all probabilities
-    probs_correct = probs_all.T[range(m),y_train]                                   # Keep only that we want to maximize
+    probs_correct = probs_all.T[range(m),y_train]                                 # Keep only that we want to maximize
     logprobs_correct = -np.log(probs_correct)                        
     
     loss = np.sum(logprobs_correct)/m                                        
@@ -87,14 +92,11 @@ for i in range(n_iterations):
         print('test accuracy: %.2f' % accuracy)
         acc_test.append(accuracy)
         
-        # Backpropagation
-    dZ2
-
-    dW2
-    db2
-    
-    dZ1
-
+    # Backpropagation
+    dZ2 = exp_scores - y_train
+    dW2 = 1/m * np.dot(dZ2, A1.T)
+    dZ1 = np.dot(W2.T, dZ2) * np.dot(reluDerivative(X_train), Z1.T)
+    db2 = 1/m * np.sum(dZ1, axis=1, keepdims=True)
     
     
     dW1 = np.dot(dZ1, X_train.T)
@@ -137,12 +139,3 @@ plt.legend()
 # Tasks
 # Run the code.
 # Report your train and test accuracy/loss plots
-
-    
-    
-    
-    
-    
-    
-    
-    
