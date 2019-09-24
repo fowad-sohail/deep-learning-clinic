@@ -45,12 +45,13 @@ Upload your py files to Blackboard before 5:00 PM.
 import numpy as np
 np.random.seed(7)                                      # control the random initializatioon
 
-from google.colab import files
-uploaded = files.upload()
-
 n_hidden = 3                                         # Number of neurons in the hidden layer
 alpha = 0.1                                           # Learning rate
 n_iterations = 10000
+
+
+def sigmoid(x):
+  return 1 / (1 + np.exp(-x))
 
 ### Load Dataset
 dataset = np.loadtxt("pima-indians-diabetes.csv", delimiter=",")
