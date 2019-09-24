@@ -93,7 +93,16 @@ for i in range(n_iterations):
         acc_test.append(accuracy)
         
     # Backpropagation
-    dZ2 = exp_scores - y_train
+    # dZ2 = A - Y
+
+    # MY dZ2 ************
+    # dZ2 = exp_scores - y_train
+
+    # Softmax derivative dZ2
+    dZ2 = probs_all
+    dZ2.T[range(m),y_train] -= 1
+    dZ2 /= m
+
     dW2 = 1/m * np.dot(dZ2, A1.T)
     dZ1 = np.dot(W2.T, dZ2) * np.dot(reluDerivative(X_train), Z1.T)
     db2 = 1/m * np.sum(dZ1, axis=1, keepdims=True)
