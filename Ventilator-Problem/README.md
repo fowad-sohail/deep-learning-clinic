@@ -1,5 +1,3 @@
-# Deep Learning Engineering Clinic (Fall 2019) 
+# Ventilator Problem
 
-Convolutional neural networks for Stroke Detection
-
-Using Python 3, TensorFlow, Keras and other Deep Learning libraries
+Given a dataset of images of patient's breathing patterns, from a ventilator machine, develop a CNN to predict normal vs abnormal breathing.
