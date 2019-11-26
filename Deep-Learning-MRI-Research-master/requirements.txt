@@ -1,0 +1,10 @@
+nibabel
+dipy
+tensorflow-gpu
+keras
+opencv-python
+scikit-image
+scikit-image
+scipy
+imgaug
+tensorlayer
