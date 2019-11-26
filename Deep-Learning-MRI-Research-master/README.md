@@ -2,9 +2,6 @@
 
 ### Please note this is not my code. The code in this folder belongs to Daniel Cahall, a student who finished his masters before I started working on this project.
 
-Culmination of the deep learning research conducted throughout my MS. This should be fairly easy to get up and running, but if there are any issues, don't hesitate to reach out.
-
-
 ## Instructions ##
 
 * Run "./configure.sh" in a terminal to install all dependencies and pull down BRATS 2018 data.
